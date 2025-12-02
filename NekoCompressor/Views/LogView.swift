@@ -15,7 +15,7 @@ struct LogView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("日誌")
+                Label("日誌", systemImage: "text.justifyleft")
                     .font(.headline)
 
                 Spacer()
@@ -70,10 +70,7 @@ struct LogView: View {
             }
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(nsColor: .controlBackgroundColor))
-        )
+        .glassCard(cornerRadius: 16)
     }
 }
 

@@ -13,8 +13,23 @@ struct OutputSettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("輸出設定")
-                .font(.headline)
+            HStack {
+                Label("輸出設定", systemImage: "folder.badge.plus")
+                    .font(.headline)
+
+                Spacer()
+
+                if viewModel.overwriteExisting {
+                    Text("覆寫開啟")
+                        .font(.caption)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .background(
+                            Capsule()
+                                .fill(Color.red.opacity(0.12))
+                        )
+                }
+            }
 
             Divider()
 
@@ -78,9 +93,7 @@ struct OutputSettingsView: View {
             }
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(nsColor: .controlBackgroundColor))
-        )
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(cornerRadius: 16)
     }
 }

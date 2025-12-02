@@ -557,7 +557,7 @@ private struct SummaryChip: View {
     let value: String
     let detail: String
     let color: Color
-
+    
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
@@ -574,28 +574,29 @@ private struct SummaryChip: View {
                     Circle()
                         .fill(color.opacity(0.12))
                 )
-
+            
             VStack(alignment: .leading, spacing: 4) {
                 Text(title.uppercased())
                     .font(.caption2)
                     .foregroundColor(.secondary)
-
+                
                 Text(value)
                     .font(.headline)
                     .foregroundColor(.primary)
                     .lineLimit(1)
                     .truncationMode(.middle)
-
+                
                 Text(detail)
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
                     .truncationMode(.middle)
             }
-
+            
             Spacer()
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 12)
         .glassCard(cornerRadius: 14)
     }
+}

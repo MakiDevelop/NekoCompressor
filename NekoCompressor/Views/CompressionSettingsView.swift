@@ -13,8 +13,20 @@ struct CompressionSettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("壓縮設定")
-                .font(.headline)
+            HStack {
+                Label("壓縮設定", systemImage: "slider.horizontal.3")
+                    .font(.headline)
+                    .labelStyle(.titleAndIcon)
+                Spacer()
+                Text(viewModel.selectedCodec.rawValue.uppercased())
+                    .font(.caption)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(
+                        Capsule()
+                            .fill(Color.blue.opacity(0.15))
+                    )
+            }
 
             Divider()
 
@@ -90,10 +102,8 @@ struct CompressionSettingsView: View {
             }
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(nsColor: .controlBackgroundColor))
-        )
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(cornerRadius: 16)
     }
 }
 
